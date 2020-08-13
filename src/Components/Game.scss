@@ -23,7 +23,7 @@
   width: 33.333333333%;
   height: 33.333333333%;
   border-width: 5px;
-  border-color: #000000;
+  border-color: #111111;
   cursor: pointer;
 
   &.left {
@@ -51,7 +51,7 @@
   width: 66.666666667%;
   height: 66.666666667%;
   border-radius: 50%;
-  border: 20px solid #000000;
+  border: 20px solid #111111;
 }
 
 .x {
@@ -63,7 +63,7 @@
     position: absolute;
     content: "";
     display: block;
-    background-color: #000000;
+    background-color: #111111;
     left: 84px;
     top: 13px;
     width: 20px;

@@ -1,5 +1,7 @@
 @import "src/Components/Navbar";
 @import "Components/Game";
+@import "Components/ThemeSwitchButton/ThemeSwitchButton";
+@import "darkTheme";
 
 body {
   margin: 0;
@@ -13,4 +15,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.container {
+  min-height: 100vh;
 }
