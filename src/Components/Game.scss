@@ -1,11 +1,8 @@
 .game {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
+ margin: 2rem auto;
   width: 35rem;
   height: 35rem;
-  margin-left: -17rem;
-  margin-top: -20rem;
 }
 .game_board {
   width: 100%;
