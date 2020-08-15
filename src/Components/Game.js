@@ -1,4 +1,5 @@
 import React from "react";
+import PlayersPointCounter from "./PlayersPointCunter/PlayersPointCounter";
 
 class Game extends React.Component {
 
@@ -7,6 +8,9 @@ class Game extends React.Component {
         this.state = {
             squares: Array(9).fill(null),
             player: 'x',
+            playerX: 0,
+            playerO: 0,
+            tie: 0,
         }
     }
 
@@ -19,7 +23,7 @@ class Game extends React.Component {
             [1, 4, 7],
             [2, 5, 8],
             [0, 4, 8],
-            [2, 4, 6],
+            [2, 4, 6]
         ];
 
         for (let i = 0; i < winnerLines.length; i++) {
@@ -29,12 +33,18 @@ class Game extends React.Component {
                 && this.state.squares[line[2]] === lastTip) {
                 document.querySelector('.game_restart-area').classList.add('end_game');
                 this.emphasizeAttention(line);
+                if (lastTip === 'x') {
+                    this.addPointX();
+                } else if (lastTip === 'o') {
+                    this.addPointO();
+                }
                 return;
             }
         }
         if (this.state.squares.find(elem => elem === null) === undefined) {
             document.querySelector('.game_restart-area').classList.add('end_game');
             document.querySelector('.game_board').classList.add('square_won');
+            this.addPointTie();
             return;
         }
         this.swapPlayer();
@@ -42,10 +52,21 @@ class Game extends React.Component {
 
     swapPlayer = () => {
         if (this.state.player === 'x') {
-            this.state.player = 'o';
+            this.setState({player: 'o'})
         } else {
-            this.state.player = 'x';
+            this.setState({player: 'x'})
         }
+    }
+
+
+    addPointX = () => {
+        this.setState({playerX: this.state.playerX + 1,});
+    }
+    addPointO = () => {
+        this.setState({playerO: this.state.playerO + 1,});
+    }
+    addPointTie = () => {
+        this.setState({tie: this.state.tie + 1,});
     }
 
     emphasizeAttention = (line) => {
@@ -62,6 +83,7 @@ class Game extends React.Component {
             currentSquare[data] = this.state.player;
             event.target.firstChild.classList.add(this.state.player);
             this.isWinner(this.state.player);
+
 
         }
         this.setState({squares: currentSquare})
@@ -80,6 +102,7 @@ class Game extends React.Component {
 
         return (
             <div className={'game'}>
+                <PlayersPointCounter playerX={this.state.playerX} playerO={this.state.playerO} tie={this.state.tie} />
                 <div className={'game_board'}>
                     <div className="square top left" onClick={this.handlerClick} data ={'0'}>
                         <div className={'square_tip'}> </div>

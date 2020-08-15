@@ -1,0 +1,21 @@
+.counter {
+  height: 50vh;
+  width: 11vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 5vw;
+}
+.counter_block {
+  width: 100%;
+  height: 10vh;
+  padding: 2vh .5vw;
+}
+.counter_name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.counter_score {
+  font-size: 1.5rem;
+  font-weight: 700;
+}

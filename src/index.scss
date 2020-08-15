@@ -2,6 +2,7 @@
 @import "Components/Game";
 @import "Components/ThemeSwitchButton/ThemeSwitchButton";
 @import "darkTheme";
+@import "src/Components/PlayersPointCunter/PlayersPointCounter";
 
 body {
   margin: 0;
@@ -26,4 +27,10 @@ code {
 .container {
   min-height: 100vh;
   min-width: 100vw;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
 }
